@@ -1,0 +1,42 @@
+@startuml HMI_Meter_ClassDiagram
+
+' Model
+class VehicleData {
+  -float speed
+  -float fuelLevel
+  -float engineTemp
+  -bool engineFault
+  -bool lowFuelWarning
+  -bool highTempWarning
+  +updateData()
+  +validateData()
+  +getSpeed(): float
+  +getFuelLevel(): float
+  +getEngineTemp(): float
+  +getWarnings(): bool[3]
+}
+
+' View
+class HMIDisplay {
+  -QLabel* speedLabel
+  -QProgressBar* fuelBar
+  -QProgressBar* tempBar
+  -QLabel* warningIcons
+  +updateDisplay()
+  +setLayout()
+}
+
+' Controller
+class HMIController {
+  -std::unique_ptr<VehicleData> model
+  -std::unique_ptr<HMIDisplay> view
+  -QTimer* timer
+  +start()
+  +update()
+}
+
+' Relationships
+HMIController o--> "1" VehicleData : owns
+HMIController o--> "1" HMIDisplay : owns
+
+@enduml
