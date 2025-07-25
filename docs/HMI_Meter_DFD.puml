@@ -1,9 +1,9 @@
-@startuml HMI_Meter_DFD
-
+@startuml
 !define RECTANGLE class
 
 ' External Entities
 entity "Data Source\n(CSV/Random)" as DataSource
+entity "TFT Display\n(800x480)" as TFTDisplay
 
 ' Processes
 RECTANGLE "VehicleData\n(Model)" as VehicleData
@@ -16,6 +16,5 @@ VehicleData --> HMIController : Validated Data\n(speed, fuel, temp, warnings)
 HMIController --> HMIDisplay : Display Data\n(speed, fuel, temp, warning icons)
 
 ' Output
-HMIDisplay --> [TFT Display\n(800x480)] : Rendered Interface
-
+HMIDisplay --> TFTDisplay
 @enduml
