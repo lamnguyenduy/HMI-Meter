@@ -4,6 +4,14 @@
 HMIDisplay::HMIDisplay(QWidget* parent) : QWidget(parent), ui(new Ui::HMIDisplay) {
     ui->setupUi(this); // Tải giao diện từ HMIDisplay.ui
     setFixedSize(800, 480); // Đảm bảo kích thước 480x800 cho TFT
+
+    QPixmap pixmapEF(":/icons/engine_fault.png");
+    QPixmap pixmapHT(":/icons/high_temp.png");
+    QPixmap pixmapLF(":/icons/low_fuel.png");
+
+    ui->warningIcons_0->setPixmap(pixmapEF.scaled(32, 32, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    ui->warningIcons_1->setPixmap(pixmapHT.scaled(32, 32, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    ui->warningIcons_2->setPixmap(pixmapLF.scaled(32, 32, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
 HMIDisplay::~HMIDisplay() {

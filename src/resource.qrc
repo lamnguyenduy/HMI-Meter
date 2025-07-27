@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC>
+    <qresource prefix="/">
+        <file>icons/engine_fault.png</file>
+		<file>icons/high_temp.png</file>
+		<file>icons/low_fuel.png</file>
+    </qresource>
+</RCC>
