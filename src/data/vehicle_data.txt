@@ -1,0 +1,4 @@
+speed fuelLevel engineTemp engineFault
+120.5 75.0 130.0 1
+80.0 5.0 140.0 0
+150.0 9.0 100.0 1 

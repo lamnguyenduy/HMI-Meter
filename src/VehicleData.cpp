@@ -4,11 +4,13 @@
 #include <random>
 #include <ctime>
 
+#include <QDebug>
+
 void VehicleData::updateData(bool useCsv, const QString& csvPath) {
     if (useCsv && !csvPath.isEmpty()) {
         QFile file(csvPath);
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QTextStream in(&file);
+            static QTextStream in(&file); // keep as static varible to save current line => change to next line data
             // Skip header if exists
             if (!in.atEnd()) {
                 in.readLine(); // Assume first line is header
@@ -16,7 +18,7 @@ void VehicleData::updateData(bool useCsv, const QString& csvPath) {
             // Read one line of data
             if (!in.atEnd()) {
                 QString line = in.readLine();
-                QStringList fields = line.split(",");
+                QStringList fields = line.split(" ");
                 if (fields.size() >= 4) {
                     speed = fields[0].toFloat();
                     fuelLevel = fields[1].toFloat();
@@ -57,6 +59,13 @@ void VehicleData::validateData() {
     // Process warnings
     lowFuelWarning = (fuelLevel < 10.0f);
     highTempWarning = (engineTemp > 120.0f);
+
+    qDebug() << "HARRY speed:"<<speed;
+    qDebug() << "HARRY fuelLevel:"<<fuelLevel;
+    qDebug() << "HARRY engineTemp:"<<engineTemp;
+    qDebug() << "HARRY engineFault:"<<engineFault;
+    qDebug() << "HARRY lowFuelWarning:"<<lowFuelWarning;
+    qDebug() << "HARRY highTempWarning:"<<highTempWarning;
 }
 
 float VehicleData::getSpeed() const {
