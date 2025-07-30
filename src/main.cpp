@@ -4,17 +4,17 @@
 
 #include <QApplication>
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
+// int main(int argc, char *argv[])
+// {
+//     QApplication a(argc, argv);
 
-    HMIDisplay display;
+//     HMIDisplay display;
 
-    VehicleData data;
+//     VehicleData data;
 
-    HMIController controller(&display, &data);
+//     HMIController controller(&display, &data);
 
-    display.show();
+//     display.show();
 
-    return a.exec();
-}
+//     return a.exec();
+// }

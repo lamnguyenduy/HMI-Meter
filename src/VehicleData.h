@@ -19,10 +19,10 @@ public:
 
     void updateData(bool useCsv, const QString& csvPath = ""); // Read from CSV or random
     void validateData();       // Check ranges and set warnings
-    float getSpeed() const;    // MISRA: Const getters
-    float getFuelLevel() const;
-    float getEngineTemp() const;
-    std::array<bool, 3> getWarnings() const; // [engineFault, lowFuel, highTemp]
+    virtual float getSpeed() const;    // MISRA: Const getters
+    virtual float getFuelLevel() const;
+    virtual float getEngineTemp() const;
+    virtual std::array<bool, 3> getWarnings() const; // [engineFault, lowFuel, highTemp]
 };
 
 #endif // VEHICLE_DATA_H

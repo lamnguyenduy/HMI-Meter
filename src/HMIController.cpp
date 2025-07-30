@@ -19,11 +19,14 @@ HMIController::HMIController(HMIDisplay* display, VehicleData* data, QObject* pa
     // Khởi tạo timer cập nhật mỗi 100ms
     updateTimer = new QTimer(this);
     updateTimer->setInterval(1000); // NFUN-002: Cập nhật <100ms
+    qDebug() << "HARRY updateTimer";
     connect(updateTimer, &QTimer::timeout, this, &HMIController::updateInterface);
     updateTimer->start();
 }
 
 void HMIController::updateInterface() {
+        qDebug() << "HARRY HMIController::updateInterface";
+
     // MISRA: Kiểm tra con trỏ null
     if (!display || !vehicleData) {
         return; // ISO 26262: Ngăn crash
@@ -37,6 +40,8 @@ void HMIController::updateInterface() {
     float fuel = vehicleData->getFuelLevel(); // %, 0-100
     float temp = vehicleData->getEngineTemp(); // °C, 0-150
     std::array<bool, 3> warnings = vehicleData->getWarnings(); // [lỗi động cơ, nhiên liệu thấp, nhiệt độ cao]
+
+    qDebug() << "HARRY HMIController::updateInterface speed:"<<speed;
 
     // Xác thực dữ liệu (ISO 26262: Đảm bảo an toàn)
     speed = std::max(0.0f, std::min(200.0f, speed));

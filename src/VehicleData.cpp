@@ -69,6 +69,7 @@ void VehicleData::validateData() {
 }
 
 float VehicleData::getSpeed() const {
+    qDebug() << "HARRY VehicleData getSpeed";
     return speed;
 }
 

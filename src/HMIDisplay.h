@@ -11,7 +11,7 @@ class HMIDisplay;
 class HMIDisplay : public QWidget {
     Q_OBJECT
 
-private:
+public:
     Ui::HMIDisplay* ui{nullptr}; // Con trỏ đến đối tượng UI
 
 public:

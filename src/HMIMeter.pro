@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,12 +14,18 @@ SOURCES += \
     HMIController.cpp \
     VehicleData.cpp \
     main.cpp \
-    HMIDisplay.cpp
+    HMIDisplay.cpp \
+    tests/tstHMIDisplay.cpp \
+    tests/tst_HMIController.cpp \
+    tests/tst_VehicleData.cpp
 
 HEADERS += \
     HMIController.h \
     HMIDisplay.h \
-    VehicleData.h
+    VehicleData.h \
+    tests/tst_HMIController.h \
+    tests/tst_HMIDisplay.h \
+    tests/tst_VehicleData.h
 
 FORMS += \
     HMIDisplay.ui
