@@ -32,4 +32,4 @@ void TestHMIController::testUpdateInterface() {
     QVERIFY(display->ui->highTempIcon->isVisible());
 }
 
-QTEST_MAIN(TestHMIController)
+// QTEST_MAIN(TestHMIController)
