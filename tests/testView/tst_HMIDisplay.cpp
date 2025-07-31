@@ -42,4 +42,4 @@ void TestHMIDisplay::testUpdateDisplayWarnings() {
     QVERIFY(tempStyle.contains("#F44336")); // Đỏ khi nhiệt độ >120°C
 }
 
-// QTEST_MAIN(TestHMIDisplay)
+QTEST_MAIN(TestHMIDisplay)

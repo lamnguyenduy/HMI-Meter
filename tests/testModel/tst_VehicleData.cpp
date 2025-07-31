@@ -24,4 +24,4 @@ void TestVehicleData::testGetWarnings() {
     QVERIFY2(warnings.size() == 3, "Mảng cảnh báo phải có 3 phần tử");
 }
 
-// QTEST_MAIN(TestVehicleData)
+QTEST_MAIN(TestVehicleData)
