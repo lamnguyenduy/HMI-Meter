@@ -5,4 +5,4 @@
 - [Data Flow Diagram](docs/HMI_Meter_DFD.png)
 - [Traceability Matrix](docs/HMI_Meter_Traceability.markdown)
 - [Source Code](src/)
-- [Sample Data](data/vehicle_data.csv)
+- [Sample Data](src/data/vehicle_data.txt)
