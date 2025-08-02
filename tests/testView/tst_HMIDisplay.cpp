@@ -42,4 +42,13 @@ void TestHMIDisplay::testUpdateDisplayWarnings() {
     QVERIFY(tempStyle.contains("#F44336")); // Đỏ khi nhiệt độ >120°C
 }
 
+void TestHMIDisplay::testResponseTime() {
+    QElapsedTimer timer;
+    timer.start();
+    display->updateDisplay(100.5f, 75.0f, 90.0f, {false, true, false});
+    qint64 elapsed = timer.elapsed();
+    qDebug() << "HARRY testResponseTime:"<<elapsed;
+    QVERIFY2(elapsed < 100, QString("Thời gian phản hồi của updateDisplay: %1ms, vượt quá 100ms").arg(elapsed).toUtf8().constData());
+}
+
 QTEST_MAIN(TestHMIDisplay)

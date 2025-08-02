@@ -18,7 +18,7 @@ HMIController::HMIController(HMIDisplay* display, VehicleData* data, QObject* pa
 
     // Khởi tạo timer cập nhật mỗi 100ms
     updateTimer = new QTimer(this);
-    updateTimer->setInterval(1000); // NFUN-002: Cập nhật <100ms
+    updateTimer->setInterval(100); // NFUN-002: Cập nhật <100ms
     qDebug() << "HARRY updateTimer";
     connect(updateTimer, &QTimer::timeout, this, &HMIController::updateInterface);
     updateTimer->start();

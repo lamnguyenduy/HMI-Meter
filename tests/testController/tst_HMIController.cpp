@@ -5,7 +5,7 @@
 void TestHMIController::initTestCase() {
     display = new HMIDisplay();
     vehicleData = new MockVehicleData();
-    controller = new HMIController(display, vehicleData);
+    controller = new MockHMIController(display, vehicleData);
 }
 
 void TestHMIController::cleanupTestCase() {
@@ -19,7 +19,7 @@ void TestHMIController::cleanupTestCase() {
 
 void TestHMIController::testUpdateInterface() {
     // Đợi 100ms để timer kích hoạt
-    QTest::qWait(1050);
+    QTest::qWait(150);
 
     display->show();
 
@@ -30,6 +30,17 @@ void TestHMIController::testUpdateInterface() {
     QVERIFY(display->ui->engineFaultIcon->isVisible());
     QVERIFY(!display->ui->lowFuelIcon->isVisible());
     QVERIFY(display->ui->highTempIcon->isVisible());
+}
+
+void TestHMIController::testUpdateInterfaceTimer()
+{
+    QTest::qWait(300);
+    MockHMIController *mockHMIController = static_cast<MockHMIController *>(controller); // sure the type is MockHMIController *, don't neeed to use dynamic_cast
+    qDebug() << "HARRY testUpdateInterfaceTimer callCount:"<<mockHMIController->callCount;
+    qDebug() << "HARRY testUpdateInterfaceTimer elapsed:"<<mockHMIController->elapsed;
+
+    QCOMPARE(mockHMIController->callCount, 5);
+    QVERIFY2(mockHMIController->elapsed >= 500 && mockHMIController->elapsed <= 550, "The elapsed time should be from 500 to 550 ms");
 }
 
 QTEST_MAIN(TestHMIController)

@@ -20,8 +20,8 @@ public:
     explicit HMIController(HMIDisplay* display, VehicleData* data, QObject* parent = nullptr);
     ~HMIController() override = default;
 
-private slots:
-    void updateInterface(); // Cập nhật giao diện từ dữ liệu xe
+protected slots:
+    virtual void updateInterface(); // Cập nhật giao diện từ dữ liệu xe
 };
 
 #endif // HMI_CONTROLLER_H

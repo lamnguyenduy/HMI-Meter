@@ -14,6 +14,7 @@ private slots:
     void testUpdateDisplayValid();
     void testUpdateDisplayBoundary();
     void testUpdateDisplayWarnings();
+    void testResponseTime();
 
 private:
     HMIDisplay* display{nullptr};
